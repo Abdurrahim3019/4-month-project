@@ -1,13 +1,38 @@
-# 🏠 Ədalətli Kirayə
+# 🏠 Ədalətli Kirayə — Fair Rent AI
 
-Bakıda ev, ofis və kommersiya obyektlərinin kirayə qiymətinin bazara uyğun olub-olmadığını yoxlayan tətbiq.
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-LangGraph-1C3C3C?logo=langchain&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-gpt--4o--mini-412991?logo=openai&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?logo=streamlit&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 
-## Rejimlər
-1. **Elanı yoxla** — bina.az linki → bazar aralığı, hökm, danışıq mesajı.
-2. **Bölgə üzrə bax** — əmlak növü + rayonlar + sahə + büdcə → rayon müqayisəsi, ən sərfəli bölgə.
+> **LTC Lab — AI Engineering kursu, 4-cü ay layihəsi**
 
-## Lokal quraşdırma
+Bakıda **mənzil, həyət evi, ofis və kommersiya obyektlərinin** kirayə qiymətinin bazara uyğun olub-olmadığını yoxlayan AI tətbiqi.
+bina.az elanının linkini yapışdırırsan → agent oxşar elanları tapır → sən onları yoxlayırsan (human-in-the-loop) → **hökm** (ədalətli / baha / ucuz), bazar aralığı qrafiki və ev sahibinə hazır **danışıq mesajı** alırsan.
+
+**🇬🇧 EN:** An AI app that checks whether a rental price in Baku (apartments, houses, offices, commercial spaces) is fair compared to the market. Paste a bina.az listing link → a ReAct agent finds comparable listings → you review them (human-in-the-loop) → you get a verdict, a market-range chart and a ready-to-send negotiation message.
+
+## ✨ Rejimlər
+1. **🔗 Elanı yoxla** — bina.az linki → oxşar elanlar → sən təsdiqləyirsən → bazar aralığı, hökm, danışıq mesajı.
+2. **🗺️ Bölgə üzrə bax** — əmlak növü + rayonlar + sahə + büdcə → rayonların müqayisəsi, 🏆 ən sərfəli bölgə, büdcəyə uyğun elanlar.
+
+## 🛠️ Texnologiyalar
+| Sahə | İstifadə olunan |
+|---|---|
+| AI / agent | LangChain, LangGraph (interrupt → human-in-the-loop), ReAct agent, RunnableParallel, OpenAI gpt-4o-mini |
+| Monitorinq | LangSmith (trace, metadata, xərc hesabı) |
+| Scraping | requests + BeautifulSoup (elan səhifəsi), Selenium headless Chrome (axtarış səhifəsi) |
+| Data | SQLite (707 elan), pandas, IQR / median / p25–p75 statistikası |
+| UI | Streamlit, Altair qrafikləri |
+| Test / deploy | pytest (65 test, fixture-larla oflayn), Docker, Docker Compose, Caddy (HTTPS) |
+
+> 💡 OpenAI açarı olmadan da işləyir — o zaman deterministik **sadə rejim** (AI agentsiz) istifadə olunur.
+
+## 🚀 Lokal quraşdırma
 ```bash
+git clone https://github.com/Abdurrahim3019/4-month-project.git
+cd 4-month-project
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 cp .env.example .env   # açarları doldur
