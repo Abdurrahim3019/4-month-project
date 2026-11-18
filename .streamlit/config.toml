@@ -6,4 +6,24 @@ maxUploadSize = 5
 gatherUsageStats = false
 
 [client]
-toolbarMode = "minimal"
+toolbarMode = "developer"
+
+[theme]
+base = "light"
+primaryColor = "#4F46E5"
+font = "sans serif"
+baseRadius = "large"
+showWidgetBorder = true
+
+[theme.light]
+backgroundColor = "#F8FAFC"
+secondaryBackgroundColor = "#EEF2FF"
+textColor = "#0F172A"
+borderColor = "#E2E8F0"
+
+[theme.dark]
+primaryColor = "#818CF8"
+backgroundColor = "#0B1020"
+secondaryBackgroundColor = "#151B2E"
+textColor = "#E5E7EB"
+borderColor = "#27304A"
